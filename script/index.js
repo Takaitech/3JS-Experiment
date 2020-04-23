@@ -39,7 +39,7 @@ function createcube() {
 
 init();
 createcube();
-particleSetup();
+// particleSetup();
 
 
 window.addEventListener( 'resize', onWindowResize, false );
@@ -96,27 +96,27 @@ for ( var i = 0, l = MAX_POINTS; i < l; i ++ ) {
 line.geometry.attributes.position.needsUpdate = true
 
 
-let portalParticles = []
+// let portalParticles = []
 
-function particleSetup() {
-    let loader = new THREE.TextureLoader();
-    loader.load("script/texture.png", function(texture) {
-        let geo = new THREE.PlaneBufferGeometry(20,20)
-        let mat = new THREE.MeshStandardMaterial({
-            map:texture,
-            transparent: true
-        });
+// function particleSetup() {
+//     let loader = new THREE.TextureLoader();
+//     loader.load("script/texture.png", function(texture) {
+//         let geo = new THREE.PlaneBufferGeometry(20,20)
+//         let mat = new THREE.MeshStandardMaterial({
+//             map:texture,
+//             transparent: true
+//         });
 
-        for(let p = 100; p > 50; p--) {
-            let particle = new THREE.Mesh(geo, mat);
-            particle.position.set( Math.random(), Math.random() , -10);
-            particle.rotation.z = Math.random() *360;
-            portalParticles.push(particle);
-            scene.add(particle)
-        }
+//         for(let p = 10; p > 1; p--) {
+//             let particle = new THREE.Mesh(geo, mat);
+//             particle.position.set( Math.random(), Math.random() , -10);
+//             particle.rotation.z = Math.random() *360;
+//             portalParticles.push(particle);
+//             scene.add(particle)
+//         }
         
-    })
-}
+//     })
+// }
 
 
 
@@ -124,10 +124,10 @@ function animate() {
     requestAnimationFrame(animate);
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
-    portalParticles.forEach(p => {
-        p.rotation.z += 0.01
-        p.position.z = p.position.z - Math.random() / 100
-    });
+    // portalParticles.forEach(p => {
+    //     p.rotation.z += 0.01;
+    //     p.position.z = p.position.z - Math.random() / 100;
+    // });
 
     // camera.position.z += 0.08;
     line.geometry.setDrawRange( 0, line.geometry.drawRange.count + 0.05);
